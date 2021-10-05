@@ -1,55 +1,67 @@
-// bubblesort
+// Java program for implementation of Bubble Sort
 
-import java.util.Arrays;
+class BubbleSort
+{
 
-class Bubblesort {
+    void bubbleSort(int arr[])
 
-  void BubbleSort(int array[]) {
+    {
 
-    int size = array.length;
+        int n = arr.length;
 
-    for (int step = 1; step < size; step++) {
+        for (int i = 0; i < n-1; i++)
 
-      int key = array[step];
+            for (int j = 0; j < n-i-1; j++)
 
-      int j = step - 1;
+                if (arr[j] > arr[j+1])
 
-      // Compare key with each element on the left of it until an element smaller than
+                {
 
-      // it is found.
+                    // swap arr[j+1] and arr[j]
 
-      // For descending order, change key<array[j] to key>array[j].
+                    int temp = arr[j];
 
-      while (j >= 0 && key < array[j]) {
+                    arr[j] = arr[j+1];
 
-        array[j + 1] = array[j];
+                    arr[j+1] = temp;
 
-        --j;
-
-      }
-
-      // Place key at after the element just smaller than it.
-
-      array[j + 1] = key;
+                }
 
     }
+ 
 
-  }
+    /* Prints the array */
 
-  // Driver code
+    void printArray(int arr[])
 
-  public static void main(String args[]) {
+    {
 
-    int[] data = { 9, 5, 1, 4, 3 };
+        int n = arr.length;
 
-     BubbleSort is = new Bubblesort();
+        for (int i=0; i<n; ++i)
 
-    is.BubbleSort(data);
+            System.out.print(arr[i] + " ");
 
-    System.out.println("Sorted Array in Ascending Order: ");
+        System.out.println();
 
-    System.out.println(Arrays.toString(data));
+    }
+ 
 
-  }
+    // Driver method to test above
 
+    public static void main(String args[])
+
+    {
+
+        BubbleSort ob = new BubbleSort();
+
+        int arr[] = {64, 34, 25, 12, 22, 11, 90};
+
+        ob.bubbleSort(arr);
+
+        System.out.println("Sorted array");
+
+        ob.printArray(arr);
+
+    }
 }
